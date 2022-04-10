@@ -285,15 +285,15 @@ public final class Verify extends Assert
             {
                 Assert.fail(mutableMapIterableName + " should be empty; actual size:<" + actualMutableMapIterable.size() + '>');
             }
-            if (actualMutableMapIterable.keySet().size() != 0)
+            if (!actualMutableMapIterable.keySet().isEmpty())
             {
                 Assert.fail(mutableMapIterableName + " should be empty; actual size:<" + actualMutableMapIterable.keySet().size() + '>');
             }
-            if (actualMutableMapIterable.values().size() != 0)
+            if (!actualMutableMapIterable.values().isEmpty())
             {
                 Assert.fail(mutableMapIterableName + " should be empty; actual size:<" + actualMutableMapIterable.values().size() + '>');
             }
-            if (actualMutableMapIterable.entrySet().size() != 0)
+            if (!actualMutableMapIterable.entrySet().isEmpty())
             {
                 Assert.fail(mutableMapIterableName + " should be empty; actual size:<" + actualMutableMapIterable.entrySet().size() + '>');
             }
@@ -555,15 +555,15 @@ public final class Verify extends Assert
             {
                 Assert.fail(mapName + " should be empty; actual size:<" + actualMap.size() + '>');
             }
-            if (actualMap.keySet().size() != 0)
+            if (!actualMap.keySet().isEmpty())
             {
                 Assert.fail(mapName + " should be empty; actual size:<" + actualMap.keySet().size() + '>');
             }
-            if (actualMap.values().size() != 0)
+            if (!actualMap.values().isEmpty())
             {
                 Assert.fail(mapName + " should be empty; actual size:<" + actualMap.values().size() + '>');
             }
-            if (actualMap.entrySet().size() != 0)
+            if (!actualMap.entrySet().isEmpty())
             {
                 Assert.fail(mapName + " should be empty; actual size:<" + actualMap.entrySet().size() + '>');
             }
