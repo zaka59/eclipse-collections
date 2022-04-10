@@ -188,7 +188,7 @@ public final class IntInterval
     public static IntInterval evensFromTo(int from, int to)
     {
         int[] values = NumberUtil.setEven(from, to);
-        return Interval.fromToBy(values[0], values[1], values[1] > values[0] ? 2 : -2);
+        return IntInterval.fromToBy(values[0], values[1], values[1] > values[0] ? 2 : -2);
     }
 
     /**
@@ -197,7 +197,7 @@ public final class IntInterval
     public static IntInterval oddsFromTo(int from, int to)
     {
         int[] values = NumberUtil.setOdd(from, to);
-        return Interval.fromToBy(values[0], values[1], values[1] > values[0] ? 2 : -2);
+        return IntInterval.fromToBy(values[0], values[1], values[1] > values[0] ? 2 : -2);
     }
 
     /**
