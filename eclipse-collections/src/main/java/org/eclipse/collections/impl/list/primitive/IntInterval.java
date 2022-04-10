@@ -52,6 +52,7 @@ import org.eclipse.collections.impl.list.mutable.primitive.IntArrayList;
 import org.eclipse.collections.impl.set.mutable.primitive.IntHashSet;
 import org.eclipse.collections.impl.tuple.primitive.PrimitiveTuples;
 import org.eclipse.collections.impl.utility.Iterate;
+import org.eclipse.collections.impl.list.util.*;
 
 /**
  * An IntInterval is a range of ints that may be iterated over using a step value.
@@ -186,29 +187,8 @@ public final class IntInterval
      */
     public static IntInterval evensFromTo(int from, int to)
     {
-        if (from % 2 != 0)
-        {
-            if (from < to)
-            {
-                from++;
-            }
-            else
-            {
-                from--;
-            }
-        }
-        if (to % 2 != 0)
-        {
-            if (to > from)
-            {
-                to--;
-            }
-            else
-            {
-                to++;
-            }
-        }
-        return IntInterval.fromToBy(from, to, to > from ? 2 : -2);
+        int[] values = NumberUtil.setEven(from, to);
+        return Interval.fromToBy(values[0], values[1], values[1] > values[0] ? 2 : -2);
     }
 
     /**
@@ -216,29 +196,8 @@ public final class IntInterval
      */
     public static IntInterval oddsFromTo(int from, int to)
     {
-        if (from % 2 == 0)
-        {
-            if (from < to)
-            {
-                from++;
-            }
-            else
-            {
-                from--;
-            }
-        }
-        if (to % 2 == 0)
-        {
-            if (to > from)
-            {
-                to--;
-            }
-            else
-            {
-                to++;
-            }
-        }
-        return IntInterval.fromToBy(from, to, to > from ? 2 : -2);
+        int[] values = NumberUtil.setOdd(from, to);
+        return Interval.fromToBy(values[0], values[1], values[1] > values[0] ? 2 : -2);
     }
 
     /**
@@ -793,7 +752,7 @@ public final class IntInterval
     @Override
     public long sum()
     {
-        return (long) this.size() * ((long) this.getFirst() + (long) this.getLast()) / 2L;
+        return this.size() * ((long) this.getFirst() + (long) this.getLast()) / 2L;
     }
 
     @Override

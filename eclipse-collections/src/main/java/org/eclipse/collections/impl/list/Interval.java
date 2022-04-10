@@ -50,6 +50,8 @@ import org.eclipse.collections.impl.list.mutable.FastList;
 import org.eclipse.collections.impl.list.mutable.MutableListIterator;
 import org.eclipse.collections.impl.set.mutable.UnifiedSet;
 
+import org.eclipse.collections.impl.list.util.*;
+
 /**
  * An Interval is a range of integers that may be iterated over using a step value. Interval
  * is an OO implementation of a for-loop.
@@ -208,29 +210,8 @@ public final class Interval
      */
     public static Interval evensFromTo(int from, int to)
     {
-        if (from % 2 != 0)
-        {
-            if (from < to)
-            {
-                from++;
-            }
-            else
-            {
-                from--;
-            }
-        }
-        if (to % 2 != 0)
-        {
-            if (to > from)
-            {
-                to--;
-            }
-            else
-            {
-                to++;
-            }
-        }
-        return Interval.fromToBy(from, to, to > from ? 2 : -2);
+        int[] values = NumberUtil.setEven(from, to);
+        return Interval.fromToBy(values[0], values[1], values[1] > values[0] ? 2 : -2);
     }
 
     /**
@@ -238,29 +219,8 @@ public final class Interval
      */
     public static Interval oddsFromTo(int from, int to)
     {
-        if (from % 2 == 0)
-        {
-            if (from < to)
-            {
-                from++;
-            }
-            else
-            {
-                from--;
-            }
-        }
-        if (to % 2 == 0)
-        {
-            if (to > from)
-            {
-                to--;
-            }
-            else
-            {
-                to++;
-            }
-        }
-        return Interval.fromToBy(from, to, to > from ? 2 : -2);
+        int[] values = NumberUtil.setOdd(from, to);
+        return Interval.fromToBy(values[0], values[1], values[1] > values[0] ? 2 : -2);
     }
 
     /**
