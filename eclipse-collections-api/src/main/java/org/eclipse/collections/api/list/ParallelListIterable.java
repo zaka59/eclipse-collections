@@ -80,5 +80,4 @@ public interface ParallelListIterable<T>
 
     @Override
     <V> ListMultimap<V, T> groupByEach(Function<? super T, ? extends Iterable<V>> function);
-
 }

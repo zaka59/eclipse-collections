@@ -79,7 +79,6 @@ public interface ParallelIterable<T>
      */
     <V> ParallelIterable<V> flatCollect(Function<? super T, ? extends Iterable<V>> function);
 
-
     void forEach(Procedure<? super T> procedure);
 
     <P> void forEachWith(Procedure2<? super T, ? super P> procedure, P parameter);
